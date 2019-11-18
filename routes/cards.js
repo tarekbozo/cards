@@ -63,7 +63,6 @@ router.put("/:id", async (req, res) => {
 
 // @route    DELETE api/businessCards/:id
 // @desc     Delete businessCard
-// @access   Privite
 
 router.delete("/:id", async (req, res) => {
   try {
