@@ -6,7 +6,7 @@ const CardItem = ({ card }) => {
   const cardContext = useContext(CardContext);
   const { deleteCard, setCurrent, clearCurrent } = cardContext;
 
-  const { id, name, sureName, email, phone } = card;
+  const { id, name, sureName, email, phone, img } = card;
 
   const onDelete = () => {
     deleteCard(id);
@@ -24,8 +24,8 @@ const CardItem = ({ card }) => {
             width: 100,
             height: 100
           }}
-          alt=""
-          src="https://mdbootstrap.com/img/Photos/Avatars/img%20(30).jpg"
+          alt="img"
+          src={img}
           data-holder-rendered="true"
         />
       </span>

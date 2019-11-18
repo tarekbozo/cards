@@ -4,6 +4,7 @@ import CardContext from "./cardContext";
 import cardReducer from "./cardReducer";
 import {
   ADD_CARD,
+  ADD_IMG,
   DELETE_CARD,
   SET_CURRENT,
   CLEAR_CURRENT,
@@ -19,7 +20,7 @@ const CardState = props => {
         sureName: " Larson",
         email: "lara@gmail.com",
         phone: "070111111",
-        type: "personal"
+        img: "https://mdbootstrap.com/img/Photos/Avatars/img%20(30).jpg"
       },
       {
         id: 2,
@@ -27,7 +28,7 @@ const CardState = props => {
         sureName: " Somath",
         email: "johan@gmail.com",
         phone: "070222222",
-        type: "personal"
+        img: "https://mdbootstrap.com/img/Photos/Avatars/img%20(30).jpg"
       },
       {
         id: 3,
@@ -35,7 +36,7 @@ const CardState = props => {
         sureName: " Bouzo",
         email: "tarekk@gmail.com",
         phone: "070333333",
-        type: "professional"
+        img: "https://mdbootstrap.com/img/Photos/Avatars/img%20(30).jpg"
       }
     ],
     current: null,
@@ -43,6 +44,15 @@ const CardState = props => {
   };
 
   const [state, dispatch] = useReducer(cardReducer, initalState);
+
+  // uplod image
+  const addImg = card => {
+    card.id = uuid.v4();
+    dispatch({
+      type: ADD_IMG,
+      payload: card
+    });
+  };
 
   // Add card
   const addCard = card => {
@@ -84,6 +94,7 @@ const CardState = props => {
         current: state.current,
         error: state.error,
         addCard,
+        addImg,
         deleteCard,
         setCurrent,
         clearCurrent,

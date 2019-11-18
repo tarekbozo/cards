@@ -7,10 +7,6 @@ const Contacts = () => {
 
   const { cards } = cardContext;
 
-  // if (contacts.length === 0) {
-  //   return <h4>Please add a contact</h4>;
-  // }
-
   return (
     <Fragment>
       {cards.map(card => (

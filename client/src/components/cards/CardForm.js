@@ -4,7 +4,7 @@ import CardContext from "../../context/card/cardContext";
 const CardForm = () => {
   const cardContext = useContext(CardContext);
 
-  const { addCard, updateCard, clearCurrent, current } = cardContext;
+  const { addCard, addImg, updateCard, clearCurrent, current } = cardContext;
 
   useEffect(() => {
     if (current !== null) {
@@ -26,7 +26,7 @@ const CardForm = () => {
     phone: ""
   });
 
-  const { name, sureName, email, phone } = card;
+  const { name, sureName, email, phone, img } = card;
 
   const onChange = e => setCard({ ...card, [e.target.name]: e.target.value });
 
@@ -38,6 +38,7 @@ const CardForm = () => {
     } else {
       updateCard(card);
     }
+
     setCard({
       name: "",
       sureName: "",
@@ -88,16 +89,20 @@ const CardForm = () => {
       />
       <div className="input-group">
         <div className="input-group-prepend">
-          <span className="input-group-text" id="inputGroupFileAddon01">
-            Upload
-          </span>
+          <input
+            className="input-group-text"
+            type="submit"
+            value="Upload image"
+            style={{ marginTop: 0 }}
+          />
         </div>
         <div className="custom-file">
           <input
-            type="file"
             className="custom-file-input"
+            type="file"
             id="inputGroupFile01"
             aria-describedby="inputGroupFileAddon01"
+            onChange={onChange}
           />
           <label className="custom-file-label" htmlFor="inputGroupFile01">
             Choose image

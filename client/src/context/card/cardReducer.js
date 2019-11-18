@@ -1,5 +1,6 @@
 import {
   ADD_CARD,
+  ADD_IMG,
   DELETE_CARD,
   SET_CURRENT,
   CLEAR_CURRENT,
@@ -10,6 +11,11 @@ import {
 export default (state, action) => {
   switch (action.type) {
     case ADD_CARD:
+      return {
+        ...state,
+        cards: [...state.cards, action.payload]
+      };
+    case ADD_IMG:
       return {
         ...state,
         cards: [...state.cards, action.payload]
