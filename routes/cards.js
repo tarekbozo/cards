@@ -2,13 +2,6 @@ const express = require("express");
 const router = express.Router();
 const Card = require("../models/Card");
 
-// @route    GET api/businessCards
-// @desc    Get all businessCards
-
-router.get("/", (req, res) => {
-  res.send("Get all cards");
-});
-
 // @route    POST api/businessCards
 // @desc     Add new businessCard
 
