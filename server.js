@@ -9,10 +9,10 @@ connectDB();
 // Init Middelware
 app.use(express.json({ extended: false }));
 
-// app.get("/", (req, res) => res.json({ msg: " welcom to business cards API..." }));
+app.get("/", (req, res) => res.json({ msg: " business cards API..." }));
 
 // Routes
-app.use("/api/contacts", require("./routes/businessCards"));
+app.use("/api/cards", require("./routes/cards"));
 
 const PORT = process.env.PORT || 5000;
 
